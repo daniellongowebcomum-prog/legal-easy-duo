@@ -9,12 +9,12 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as AluguerRouteImport } from './routes/aluguer'
+import { Route as AluguerDeBicicletasRouteImport } from './routes/aluguer-de-bicicletas'
 import { Route as IndexRouteImport } from './routes/index'
 
-const AluguerRoute = AluguerRouteImport.update({
-  id: '/aluguer',
-  path: '/aluguer',
+const AluguerDeBicicletasRoute = AluguerDeBicicletasRouteImport.update({
+  id: '/aluguer-de-bicicletas',
+  path: '/aluguer-de-bicicletas',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -25,37 +25,37 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/aluguer': typeof AluguerRoute
+  '/aluguer-de-bicicletas': typeof AluguerDeBicicletasRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/aluguer': typeof AluguerRoute
+  '/aluguer-de-bicicletas': typeof AluguerDeBicicletasRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/aluguer': typeof AluguerRoute
+  '/aluguer-de-bicicletas': typeof AluguerDeBicicletasRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/aluguer'
+  fullPaths: '/' | '/aluguer-de-bicicletas'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/aluguer'
-  id: '__root__' | '/' | '/aluguer'
+  to: '/' | '/aluguer-de-bicicletas'
+  id: '__root__' | '/' | '/aluguer-de-bicicletas'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AluguerRoute: typeof AluguerRoute
+  AluguerDeBicicletasRoute: typeof AluguerDeBicicletasRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/aluguer': {
-      id: '/aluguer'
-      path: '/aluguer'
-      fullPath: '/aluguer'
-      preLoaderRoute: typeof AluguerRouteImport
+    '/aluguer-de-bicicletas': {
+      id: '/aluguer-de-bicicletas'
+      path: '/aluguer-de-bicicletas'
+      fullPath: '/aluguer-de-bicicletas'
+      preLoaderRoute: typeof AluguerDeBicicletasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,7 +70,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AluguerRoute: AluguerRoute,
+  AluguerDeBicicletasRoute: AluguerDeBicicletasRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/aluguer")({
+export const Route = createFileRoute("/aluguer-de-bicicletas")({
   head: () => ({
     meta: [
       { title: "Termos e Condições — Aluguer de Bicicletas | FeelAzores Sports" },
